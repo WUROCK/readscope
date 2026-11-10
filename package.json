@@ -1,0 +1,67 @@
+{
+  "name": "readscope",
+  "productName": "阅界 · 阅读助手",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A desktop reading-goal widget for WeChat Reading and research papers.",
+  "license": "MIT",
+  "author": "WUROCK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WUROCK/readscope.git"
+  },
+  "homepage": "https://github.com/WUROCK/readscope#readme",
+  "bugs": {
+    "url": "https://github.com/WUROCK/readscope/issues"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "typescript",
+    "weread",
+    "wechat-reading",
+    "reading-tracker",
+    "arxiv",
+    "crossref",
+    "desktop-widget"
+  ],
+  "type": "module",
+  "main": "electron/main.cjs",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "vite build --config web/vite.config.ts",
+    "start": "node scripts/start.mjs",
+    "electron": "electron .",
+    "capture": "node scripts/capture.mjs",
+    "server": "node server/index.mjs",
+    "test": "node --test server/tests",
+    "test:desktop": "node --test electron/tests/window-manager.test.cjs electron/tests/logging.test.cjs",
+    "test:ui": "node scripts/run-qa.mjs reference-layout-qa",
+    "test:recommendations:live": "node scripts/run-qa.mjs recommendation-smoke",
+    "typecheck": "tsc -p web/tsconfig.json --noEmit",
+    "check": "npm run typecheck && npm run test && npm run test:desktop && npm run test:reading && npm run build",
+    "test:reading": "node --test web/tests/reading-order.test.mjs",
+    "test:desktop:visible": "node scripts/run-qa.mjs desktop-flash-qa",
+    "test:ui:books": "node scripts/run-qa.mjs manual-books-qa"
+  },
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "csv-parse": "7.0.3",
+    "csv-stringify": "6.9.0",
+    "express": "5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "45.1.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.5"
+  }
+}

@@ -1,0 +1,25 @@
+node_modules/
+web/dist/
+artifacts/
+data/cache/
+data/settings.json
+data/books.json
+data/papers.json
+data/checkins.csv
+data/recommendations.csv
+.tmp_skills/
+.smoke/
+web/.smoke/
+*.log
+.env
+.env.*
+!.env.example
+data/*
+!data/seed/
+
+# 本地诊断产物 / 个人环境备份（绝不入库）
+_diag/
+*.msix
+Thumbs.db
+.DS_Store
+_review/
